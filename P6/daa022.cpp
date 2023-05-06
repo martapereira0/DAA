@@ -79,13 +79,13 @@ bool isBSTree(Node t,int min, int max){
 }
 
 // verifica se respeita a Red property
-bool redproperty(Node t){ //flag é 0 quando estamos a verificar os filhos de um nó vermleho e 1 se não
+bool redproperty(Node t){ 
   if (t->isNull) return true; // é uma folha logo tem de ser preta
   if ((!t->isBlack && !t->left->isNull && !t->left->isBlack) || (!t->isBlack && !t->right->isNull && !t->right->isBlack)) return false; 
   return redproperty(t->left) && redproperty(t->right); 
 }
 
-// retornar a quantidade de nós pretos que um caminho tem
+// verificar se todos os elementos do vetor são iguais, se sim então a árvore respeita à black property
 
 bool allEqual(vector<int> const &v) {
     return adjacent_find(v.begin(), v.end(), std::not_equal_to<int>()) == v.end();
@@ -102,9 +102,7 @@ bool count_black_pieces(Node t,int c, vector<int>& vetor){
     c++; 
     //cout << "no preto: " << t->value << endl;
   }
-  /*else{
-    cout << "no vermelho: " << t->value << endl;
-  }*/
+
   count_black_pieces(t->left,c,vetor);
   count_black_pieces(t->right,c,vetor); 
 
