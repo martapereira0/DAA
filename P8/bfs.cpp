@@ -47,13 +47,13 @@ public:
     list<int> q;
     for (int i=1; i<=n; i++) nodes[i].visited = false;
     
-    q.push_back(v); //insert the element at the end of the list container
+    q.push_back(v); 
     nodes[v].visited = true;
     matrix[v][v]= 0;
 
     while (q.size() > 0) {
-      int u = q.front(); // access to the front element
-      q.pop_front(); // removes the first element in the list container
+      int u = q.front(); 
+      q.pop_front(); 
       for (auto w : nodes[u].adj)
         if (!nodes[w].visited) {
           q.push_back(w);
