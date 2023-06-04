@@ -33,7 +33,7 @@ public:
   }
   
   void addLink(int a, int b, float c) { // adicionar um par do tipo {nó,custo}
-    //grafo bidirecional, logo
+    //grafo bidirecional, logo:
     nodes[a].adj.push_back({b,c});
     nodes[b].adj.push_back({a,c}); 
   }
